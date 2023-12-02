@@ -105,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
         btnInterstitial.setOnClickListener(v -> {
             startActivity(new Intent(getApplicationContext(), SecondActivity.class));
             showInterstitialAd();
-            destroyBannerAd();
         });
 
         btnRewarded = findViewById(R.id.btn_rewarded);
@@ -130,8 +129,6 @@ public class MainActivity extends AppCompatActivity {
                 .setStartappAppId(Constant.STARTAPP_APP_ID)
                 .setUnityGameId(Constant.UNITY_GAME_ID)
                 .setAppLovinSdkKey(getResources().getString(R.string.applovin_sdk_key))
-                .setIronSourceAppKey(Constant.IRONSOURCE_APP_KEY)
-                .setWortiseAppId(Constant.WORTISE_APP_ID)
                 .setDebug(BuildConfig.DEBUG)
                 .build();
     }
@@ -145,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
                     .setAdMobAppOpenId(Constant.ADMOB_APP_OPEN_AD_ID)
                     .setAdManagerAppOpenId(Constant.GOOGLE_AD_MANAGER_APP_OPEN_AD_ID)
                     .setApplovinAppOpenId(Constant.APPLOVIN_APP_OPEN_AP_ID)
-                    .setWortiseAppOpenId(Constant.WORTISE_APP_OPEN_AD_ID)
                     .build();
         }
     }
@@ -175,8 +171,6 @@ public class MainActivity extends AppCompatActivity {
                 .setUnityBannerId(Constant.UNITY_BANNER_ID)
                 .setAppLovinBannerId(Constant.APPLOVIN_BANNER_ID)
                 .setAppLovinBannerZoneId(Constant.APPLOVIN_BANNER_ZONE_ID)
-                .setIronSourceBannerId(Constant.IRONSOURCE_BANNER_ID)
-                .setWortiseBannerId(Constant.WORTISE_BANNER_ID)
                 .setDarkTheme(sharedPref.getIsDarkTheme())
                 .build();
     }
@@ -192,7 +186,6 @@ public class MainActivity extends AppCompatActivity {
                 .setUnityBannerId(Constant.UNITY_BANNER_ID)
                 .setAppLovinBannerId(Constant.APPLOVIN_BANNER_ID)
                 .setAppLovinBannerZoneId(Constant.APPLOVIN_BANNER_ZONE_ID)
-                .setIronSourceBannerId(Constant.IRONSOURCE_BANNER_ID)
                 .setDarkTheme(sharedPref.getIsDarkTheme())
                 .build();
     }
@@ -208,8 +201,6 @@ public class MainActivity extends AppCompatActivity {
                 .setUnityInterstitialId(Constant.UNITY_INTERSTITIAL_ID)
                 .setAppLovinInterstitialId(Constant.APPLOVIN_INTERSTITIAL_ID)
                 .setAppLovinInterstitialZoneId(Constant.APPLOVIN_INTERSTITIAL_ZONE_ID)
-                .setIronSourceInterstitialId(Constant.IRONSOURCE_INTERSTITIAL_ID)
-                .setWortiseInterstitialId(Constant.WORTISE_INTERSTITIAL_ID)
                 .setInterval(Constant.INTERSTITIAL_AD_INTERVAL)
                 .build(() -> {
                     Log.d(TAG, "onAdDismissed");
@@ -227,8 +218,6 @@ public class MainActivity extends AppCompatActivity {
                 .setUnityRewardedId(Constant.UNITY_REWARDED_ID)
                 .setApplovinMaxRewardedId(Constant.APPLOVIN_MAX_REWARDED_ID)
                 .setApplovinDiscRewardedZoneId(Constant.APPLOVIN_DISC_REWARDED_ZONE_ID)
-                .setIronSourceRewardedId(Constant.IRONSOURCE_REWARDED_ID)
-                .setWortiseRewardedId(Constant.WORTISE_REWARDED_ID)
                 .build(new OnRewardedAdCompleteListener() {
                     @Override
                     public void onRewardedAdComplete() {
@@ -280,7 +269,6 @@ public class MainActivity extends AppCompatActivity {
                 .setFanNativeId(Constant.FAN_NATIVE_ID)
                 .setAppLovinNativeId(Constant.APPLOVIN_NATIVE_MANUAL_ID)
                 .setAppLovinDiscoveryMrecZoneId(Constant.APPLOVIN_BANNER_MREC_ZONE_ID)
-                .setWortiseNativeId(Constant.WORTISE_NATIVE_ID)
                 .setNativeAdStyle(Constant.NATIVE_STYLE)
                 .setNativeAdBackgroundColor(R.color.colorNativeBackgroundLight, R.color.colorNativeBackgroundDark)
                 .setPadding(0, 0, 0, 0)
@@ -298,7 +286,6 @@ public class MainActivity extends AppCompatActivity {
                 .setFanNativeId(Constant.FAN_NATIVE_ID)
                 .setAppLovinNativeId(Constant.APPLOVIN_NATIVE_MANUAL_ID)
                 .setAppLovinDiscoveryMrecZoneId(Constant.APPLOVIN_BANNER_MREC_ZONE_ID)
-                .setWortiseNativeId(Constant.WORTISE_NATIVE_ID)
                 .setNativeAdStyle(Constant.NATIVE_STYLE)
                 .setNativeAdBackgroundColor(R.color.colorNativeBackgroundLight, R.color.colorNativeBackgroundDark)
                 .setDarkTheme(sharedPref.getIsDarkTheme())
@@ -316,7 +303,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        destroyBannerAd();
         destroyAppOpenAd();
         Constant.isAppOpen = false;
     }
@@ -451,16 +437,11 @@ public class MainActivity extends AppCompatActivity {
         dialog.setCancelable(false);
         dialog.setPositiveButton("Exit", (dialogInterface, i) -> {
             super.onBackPressed();
-            destroyBannerAd();
             destroyAppOpenAd();
             Constant.isAppOpen = false;
         });
         dialog.setNegativeButton("Cancel", null);
         dialog.show();
-    }
-
-    private void destroyBannerAd() {
-        bannerAd.destroyAndDetachBanner();
     }
 
     private void destroyAppOpenAd() {

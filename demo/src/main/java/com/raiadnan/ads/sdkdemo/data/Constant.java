@@ -42,18 +42,6 @@ public class Constant {
     public static final String APPLOVIN_INTERSTITIAL_ZONE_ID = "b6eba8b976279ea5";
     public static final String APPLOVIN_DISC_REWARDED_ZONE_ID = "b6eba8b976279ea5";
 
-    public static final String IRONSOURCE_APP_KEY = "85460dcd";
-    public static final String IRONSOURCE_BANNER_ID = "DefaultBanner";
-    public static final String IRONSOURCE_INTERSTITIAL_ID = "DefaultInterstitial";
-    public static final String IRONSOURCE_REWARDED_ID = "DefaultRewardedVideo";
-
-    public static final String WORTISE_APP_ID = "test-app-id";
-    public static final String WORTISE_BANNER_ID = "test-banner";
-    public static final String WORTISE_INTERSTITIAL_ID = "test-interstitial";
-    public static final String WORTISE_REWARDED_ID = "test-rewarded";
-    public static final String WORTISE_NATIVE_ID = "test-native";
-    public static final String WORTISE_APP_OPEN_AD_ID = "test-app-open";
-
     public static String NATIVE_STYLE = "default";
     public static final String STYLE_NEWS = "news";
     public static final String STYLE_RADIO = "radio";

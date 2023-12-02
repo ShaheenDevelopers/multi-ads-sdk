@@ -5,7 +5,6 @@ import static com.shaheendevelopers.ads.sdk.util.Constant.AD_STATUS_ON;
 import static com.shaheendevelopers.ads.sdk.util.Constant.APPLOVIN;
 import static com.shaheendevelopers.ads.sdk.util.Constant.APPLOVIN_MAX;
 import static com.shaheendevelopers.ads.sdk.util.Constant.GOOGLE_AD_MANAGER;
-import static com.shaheendevelopers.ads.sdk.util.Constant.WORTISE;
 
 import android.app.Activity;
 import android.app.Application;
@@ -23,7 +22,6 @@ import androidx.multidex.MultiDex;
 import com.shaheendevelopers.ads.sdk.format.AppOpenAdAppLovin;
 import com.shaheendevelopers.ads.sdk.format.AppOpenAdManager;
 import com.shaheendevelopers.ads.sdk.format.AppOpenAdMob;
-import com.shaheendevelopers.ads.sdk.format.AppOpenAdWortise;
 import com.shaheendevelopers.ads.sdk.util.OnShowAdCompleteListener;
 import com.raiadnan.ads.sdkdemo.data.Constant;
 
@@ -33,7 +31,6 @@ public class MyApplication extends Application {
     private AppOpenAdMob appOpenAdMob;
     private AppOpenAdManager appOpenAdManager;
     private AppOpenAdAppLovin appOpenAdAppLovin;
-    private AppOpenAdWortise appOpenAdWortise;
     Activity currentActivity;
 
     @Override
@@ -45,7 +42,6 @@ public class MyApplication extends Application {
             appOpenAdMob = new AppOpenAdMob();
             appOpenAdManager = new AppOpenAdManager();
             appOpenAdAppLovin = new AppOpenAdAppLovin();
-            appOpenAdWortise = new AppOpenAdWortise();
         }
     }
 
@@ -85,14 +81,6 @@ public class MyApplication extends Application {
                                     }
                                 }
                                 break;
-
-                            case WORTISE:
-                                if (!Constant.WORTISE_APP_OPEN_AD_ID.equals("0")) {
-                                    if (!currentActivity.getIntent().hasExtra("unique_id")) {
-                                        appOpenAdWortise.showAdIfAvailable(currentActivity, Constant.WORTISE_APP_OPEN_AD_ID);
-                                    }
-                                }
-                                break;
                         }
                     }
                 }
@@ -128,13 +116,6 @@ public class MyApplication extends Application {
                         case APPLOVIN_MAX:
                             if (!Constant.APPLOVIN_APP_OPEN_AP_ID.equals("0")) {
                                 if (!appOpenAdAppLovin.isShowingAd) {
-                                    currentActivity = activity;
-                                }
-                            }
-                            break;
-                        case WORTISE:
-                            if (!Constant.WORTISE_APP_OPEN_AD_ID.equals("0")) {
-                                if (!appOpenAdWortise.isShowingAd) {
                                     currentActivity = activity;
                                 }
                             }
@@ -185,12 +166,6 @@ public class MyApplication extends Application {
                     case APPLOVIN_MAX:
                         if (!Constant.APPLOVIN_APP_OPEN_AP_ID.equals("0")) {
                             appOpenAdAppLovin.showAdIfAvailable(activity, Constant.APPLOVIN_APP_OPEN_AP_ID, onShowAdCompleteListener);
-                            Constant.isAppOpen = true;
-                        }
-                        break;
-                    case WORTISE:
-                        if (!Constant.WORTISE_APP_OPEN_AD_ID.equals("0")) {
-                            appOpenAdWortise.showAdIfAvailable(activity, Constant.WORTISE_APP_OPEN_AD_ID, onShowAdCompleteListener);
                             Constant.isAppOpen = true;
                         }
                         break;
