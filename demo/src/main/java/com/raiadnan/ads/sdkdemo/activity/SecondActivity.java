@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import com.raiadnan.ads.sdkdemo.adapter.AdapterPost;
 import com.raiadnan.ads.sdkdemo.database.SharedPref;
 import com.raiadnan.ads.sdkdemo.model.Post;
-import com.shaheendevelopers.ads.sdk.format.BannerAd;
 import com.raiadnan.ads.sdkdemo.R;
 import com.raiadnan.ads.sdkdemo.data.Constant;
+import com.shaheendevelopers.ads.sdk.format.BannerAd;
 
 import java.util.ArrayList;
 import java.util.List;
