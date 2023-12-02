@@ -26,4 +26,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MultiAdsSdk"
 include ':demo'
-include ':shaheendevelopersAds_SDK'
