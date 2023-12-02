@@ -1,6 +1,5 @@
 [![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://shields.io/)
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](#)
-![Visitors](https://visitor-badge.glitch.me/badge?page_id=shaheen.developerssdk)
 
 # Shaheen Developers Ads Sdk
 
@@ -18,7 +17,7 @@
  ```gradle
   dependencies {
   
-		 implementation 'com.github.ShaheenDevelopers:MultiAdsSdk:1.0.0'
+		 implementation 'com.github.ShaheenDevelopers:multi-ads-sdk:1.0.0'
 	}
 ```
 
